@@ -22,7 +22,7 @@ type Props = TouchableOpacityProps & {
 export function QuadraPadel() {
   return (
     <ImageBackground
-      source={{ uri: "@/assets/images/quadra-padel.png" }}
+      source={require("@/assets/images/quadra-padel.png")}
       style={{ width: 186, height: 327 }}
     ></ImageBackground>
   );
