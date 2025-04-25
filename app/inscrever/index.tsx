@@ -1,14 +1,7 @@
 import { StyleSheet, Text, View, Alert, TextInput } from "react-native";
-import { Button } from "../app-example/components/button";
-import { Component, ReactNode } from "react";
+// import { Button } from "../app-example/components/button";
 
-export default function Index() {
-  function handleMessage() {
-    const name = "Rodrigo";
-    console.log("testando");
-    Alert.alert(`olá ${name}`);
-  }
-
+export default function Inscrever() {
   return (
     <View
       style={{
@@ -18,17 +11,20 @@ export default function Index() {
         backgroundColor: "#2A74CD",
       }}
     >
-      {/* <Image /> */}
-      <Text style={styles.title}>Match Padel</Text>
-      {/* <Form></Form> */}
+      <p>Nome completo</p>
+      <TextInput style={styles.input} placeholder="Nome completo" />
+      <p>Apelido</p>
+      <TextInput style={styles.input} placeholder="Apelido" />
       <p>Email</p>
       <TextInput style={styles.input} placeholder="E-mail" />
+      <p>Celular</p>
+      <TextInput style={styles.input} placeholder="Celular" />
       <p>Senha</p>
       <TextInput style={styles.input} placeholder="Senha" />
       {/* <Button title="Enviar" onPress={handleMessage} /> */}
       <div style={{ display: "flex", gap: "5px" }}>
-        <Button title="Entrar" onPress={handleMessage} />
-        <Button title="Inscrever-se" onPress={handleMessage} />
+        {/* <Button title="Entrar" onPress={handleMessage} />
+        <Button title="Inscrever-se" onPress={handleMessage} /> */}
       </div>
     </View>
   );
