@@ -37,10 +37,10 @@ export default function Login() {
       <TextInput style={styles.input} placeholder="Senha" secureTextEntry />
 
       <View style={styles.buttonContainer}>
-        <Link href="/home">
+        <Link href="/home" push asChild>
           <Button title="Entrar" onPress={handleLogin} />
         </Link>
-        <Link href="/inscrever">
+        <Link href="/inscrever" push asChild>
           <Button title="Inscrever-se" onPress={handleSignUp} />
         </Link>
       </View>

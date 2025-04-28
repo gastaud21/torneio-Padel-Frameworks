@@ -18,15 +18,11 @@ export default function Home() {
       }}
     >
       <Text style={styles.title}>Match Padel</Text>
-      <p>Email</p>
+      <Text>Email</Text>
       <TextInput style={styles.input} placeholder="E-mail" />
-      <p>Senha</p>
+      <Text>Senha</Text>
       <TextInput style={styles.input} placeholder="Senha" />
       {/* <Button title="Enviar" onPress={handleMessage} /> */}
-      <div style={{ display: "flex", gap: "5px" }}>
-        {/* <Button title="Entrar" onPress={handleMessage} />
-        <Button title="Inscrever-se" onPress={handleMessage} /> */}
-      </div>
     </View>
   );
 }
