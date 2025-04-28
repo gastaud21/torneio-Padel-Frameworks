@@ -6,7 +6,7 @@ import {
   TextInput,
   ImageBackground,
 } from "react-native";
-import { QuadraPadel } from "../components/quadraPadel";
+// import { Quadra }
 import { Button } from "@/app-example/components/button";
 
 export default function Placar() {
@@ -17,7 +17,7 @@ export default function Placar() {
         source={require("@/assets/images/quadra-padel.png")}
         resizeMode="cover"
       />
-      <QuadraPadel />
+      {/* <QuadraPadel /> */}
     </View>
   );
 }

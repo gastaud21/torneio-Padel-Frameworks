@@ -19,7 +19,7 @@ type Props = TouchableOpacityProps & {
 // colocar as propriedades no final pra fazer com que
 // export function QuadraPadel({ title, ...rest }: Props) {
 
-export function QuadraPadel() {
+export default function QuadraPadel() {
   return (
     <ImageBackground
       source={require("@/assets/images/quadra-padel.png")}
