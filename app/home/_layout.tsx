@@ -2,22 +2,19 @@ import { Tabs } from "expo-router";
 import React from "react";
 import { StatusBar } from "expo-status-bar";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import Octicons from "@expo/vector-icons/Octicons";
+import Ionicons from "@expo/vector-icons/Ionicons";
 
 export default function RootLayout() {
   return (
     <React.Fragment>
       <StatusBar style="auto" />
-      <Tabs>
+      <Tabs screenOptions={{ headerShown: false }}>
         <Tabs.Screen
           name="index"
           options={{
-            tabBarIcon: () => (
-              <MaterialCommunityIcons
-                name="numeric-1-box-outline"
-                size={24}
-                color="black"
-              />
-            ),
+            title: "Home",
+            tabBarIcon: () => <Ionicons name="home" size={24} color="black" />,
           }}
         />
         <Tabs.Screen
@@ -45,15 +42,23 @@ export default function RootLayout() {
           }}
         />
         <Tabs.Screen
-          name="four"
+          name="placar/index"
           options={{
+            title: "Placar",
             tabBarIcon: () => (
               <MaterialCommunityIcons
-                name="numeric-4-box-outline"
+                name="numeric-5-box-outline"
                 size={24}
                 color="black"
               />
             ),
+          }}
+        />
+        <Tabs.Screen
+          name="four"
+          options={{
+            title: "Configurações",
+            tabBarIcon: () => <Octicons name="gear" size={24} color="black" />,
           }}
         />
       </Tabs>
