@@ -38,14 +38,21 @@ export default function Login() {
 
       <View style={styles.buttonContainer}>
         <Link href="/home" push asChild>
-          <Button title="Entrar" onPress={handleLogin} />
+          <Text>Entrar</Text>
         </Link>
         <Link href="/inscrever" push asChild>
-          <Button title="Inscrever-se" onPress={handleSignUp} />
+          <Text>Inscrever-se</Text>
         </Link>
       </View>
     </View>
   );
+}
+
+{
+  /* <Button title="Inscrever-se" onPress={handleSignUp} /> */
+}
+{
+  /* <Button title="Entrar" onPress={handleLogin} /> */
 }
 
 const styles = StyleSheet.create({

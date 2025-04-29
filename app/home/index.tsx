@@ -17,12 +17,7 @@ export default function Home() {
         backgroundColor: "#2A74CD",
       }}
     >
-      <Text style={styles.title}>Match Padel</Text>
-      <Text>Email</Text>
-      <TextInput style={styles.input} placeholder="E-mail" />
-      <Text>Senha</Text>
-      <TextInput style={styles.input} placeholder="Senha" />
-      {/* <Button title="Enviar" onPress={handleMessage} /> */}
+      <Text style={styles.title}>Ranking Anual</Text>
     </View>
   );
 }

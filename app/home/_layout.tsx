@@ -20,12 +20,9 @@ export default function RootLayout() {
         <Tabs.Screen
           name="second"
           options={{
+            title: "Jogos",
             tabBarIcon: () => (
-              <MaterialCommunityIcons
-                name="numeric-2-box-outline"
-                size={24}
-                color="black"
-              />
+              <Ionicons name="tennisball" size={24} color="black" />
             ),
           }}
         />
@@ -47,7 +44,7 @@ export default function RootLayout() {
             title: "Placar",
             tabBarIcon: () => (
               <MaterialCommunityIcons
-                name="numeric-5-box-outline"
+                name="scoreboard-outline"
                 size={24}
                 color="black"
               />
