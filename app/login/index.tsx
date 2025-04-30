@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, Alert, TextInput } from "react-native";
-import { Button } from "@/app-example/components/button";
+// import { Button } from "@/app-example/components/button";
 import { Component, ReactNode } from "react";
+import { Button } from "react-native";
 
 export default function Login() {
   function handleMessage() {
