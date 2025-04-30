@@ -1,6 +1,5 @@
 import { StyleSheet, Text, View, Alert, TextInput } from "react-native";
 import { Button } from "@/app-example/components/button";
-import { Link } from "expo-router";
 import { Component, ReactNode } from "react";
 
 export default function Login() {
@@ -37,22 +36,11 @@ export default function Login() {
       <TextInput style={styles.input} placeholder="Senha" secureTextEntry />
 
       <View style={styles.buttonContainer}>
-        <Link href="/home" push asChild>
-          <Text>Entrar</Text>
-        </Link>
-        <Link href="/inscrever" push asChild>
-          <Text>Inscrever-se</Text>
-        </Link>
+        <Button title="Entrar" onPress={handleLogin} />
+        <Button title="Inscrever-se" onPress={handleSignUp} />
       </View>
     </View>
   );
-}
-
-{
-  /* <Button title="Inscrever-se" onPress={handleSignUp} /> */
-}
-{
-  /* <Button title="Entrar" onPress={handleLogin} /> */
 }
 
 const styles = StyleSheet.create({
