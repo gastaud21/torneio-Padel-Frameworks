@@ -4,6 +4,8 @@ import {
   Text,
   ImageBackground,
   Image,
+  View,
+  StyleSheet,
 } from "react-native";
 import {
   ReactElement,
@@ -11,6 +13,8 @@ import {
   ReactNode,
   ReactPortal,
 } from "react";
+import { Avatar } from "@rneui/themed";
+import BolaQuicando from "../BolaQuicando";
 
 type Props = TouchableOpacityProps & {
   title: string;
@@ -22,16 +26,93 @@ type Props = TouchableOpacityProps & {
 
 export default function QuadraPadel() {
   return (
-    // <ImageBackground
-    //   // source={require("@/assets/images/quadra-padel.png")}
-    //   source={require("../../../assets/images/quadra-padel.png")}
-    //   style={{ width: 186, height: 327 }}
-    // >
-    //   <Text>teste</Text>
-    // </ImageBackground>
-    <Image 
-    source={{uri: "https://cdn.ahnegao.com.br/wp-content/uploads/2011/04/dinossauros.jpg"}}
-    style={{ width: 450, height: 677 }}
-    />
+    <ImageBackground
+      source={require("../../../assets/images/quadra-padel.png")}
+      style={styles.quadra}
+    >
+      <View style={styles.divDupla}>
+        <View style={styles.divPlayer}>
+          <Avatar
+            rounded
+            size={48}
+            containerStyle={styles.playerAvatar}
+            source={{
+              uri: "https://www.padelfip.com/wp-content/uploads/2023/02/01-COELLO-1.png",
+            }}
+          />
+        </View>
+        <View style={styles.divPlayer}>
+          <Avatar
+            rounded
+            size={48}
+            containerStyle={styles.playerAvatar}
+            source={{
+              uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz63rvLcLushA9lu5ur1gISTIRtgDkQEdmOA&s",
+            }}
+          />
+        </View>
+      </View>
+      <View style={styles.divBola}>
+        {/* <Image
+          style={styles.bolaImage}
+          source={require("../../../assets/images/bola-padel.png")}
+        /> */}
+        <BolaQuicando />
+      </View>
+      <View style={styles.divDupla}>
+        <View style={styles.divPlayer}>
+          <Avatar
+            rounded
+            size={48}
+            containerStyle={styles.playerAvatar}
+            source={{
+              uri: "https://www.padelfip.com/wp-content/uploads/2023/02/Stupaczuk-2.png",
+            }}
+          />
+        </View>
+        <View style={styles.divPlayer}>
+          <Avatar
+            rounded
+            size={48}
+            containerStyle={styles.playerAvatar}
+            source={{
+              uri: "https://www.padelfip.com/wp-content/uploads/2023/02/08-CHINGOTTO-1.png",
+            }}
+          />
+        </View>
+      </View>
+    </ImageBackground>
   );
 }
+
+const styles = StyleSheet.create({
+  quadra: {
+    display: "flex",
+    justifyContent: "space-between",
+    width: 186,
+    height: 327,
+  },
+  divDupla: {
+    display: "flex",
+    flexDirection: "row",
+    paddingVertical: 16,
+  },
+  divPlayer: {
+    width: "50%",
+    display: "flex",
+    alignItems: "center",
+  },
+  playerAvatar: {
+    borderColor: "black",
+    borderStyle: "solid",
+    borderWidth: 2,
+  },
+  divBola: {
+    display: "flex",
+    height: 100,
+  },
+  bolaImage: {
+    width: 24,
+    height: 23,
+  },
+});
