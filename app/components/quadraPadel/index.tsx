@@ -22,16 +22,16 @@ type Props = TouchableOpacityProps & {
 
 export default function QuadraPadel() {
   return (
-    // <ImageBackground
-    //   // source={require("@/assets/images/quadra-padel.png")}
-    //   source={require("../../../assets/images/quadra-padel.png")}
-    //   style={{ width: 186, height: 327 }}
-    // >
-    //   <Text>teste</Text>
-    // </ImageBackground>
-    <Image 
-    source={{uri: "https://cdn.ahnegao.com.br/wp-content/uploads/2011/04/dinossauros.jpg"}}
-    style={{ width: 450, height: 677 }}
-    />
+    <ImageBackground
+      // source={require("@/assets/images/quadra-padel.png")}
+      source={require("../../../assets/images/quadra-padel.png")}
+      style={{ width: 186, height: 327 }}
+    >
+      <Text>teste</Text>
+    </ImageBackground>
+    // <Image
+    // source={{uri: "https://cdn.ahnegao.com.br/wp-content/uploads/2011/04/dinossauros.jpg"}}
+    // style={{ width: 450, height: 677 }}
+    // />
   );
 }
