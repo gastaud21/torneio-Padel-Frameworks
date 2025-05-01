@@ -19,7 +19,7 @@ export default function BolaQuicando() {
         }),
       ])
     ).start();
-  }, [translateY]);
+  }, []);
 
   // Interpolação da sombra com base na altura da bola
   const shadowScale = translateY.interpolate({
@@ -34,7 +34,7 @@ export default function BolaQuicando() {
 
   return (
     <View style={styles.container}>
-      {/* Sombra */}
+      {/* ⚠️ Ordem importa: a sombra vem primeiro */}
       <Animated.View
         style={[
           styles.shadow,
@@ -46,8 +46,8 @@ export default function BolaQuicando() {
       />
       {/* Bola */}
       <Animated.Image
-        style={[styles.bolaImage, { transform: [{ translateY }] }]}
         source={require("../../../assets/images/bola-padel.png")}
+        style={[styles.bolaImage, { transform: [{ translateY }] }]}
       />
     </View>
   );
@@ -58,19 +58,18 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    overflow: "visible", // 🔧 garante que a sombra não seja cortada
   },
   bolaImage: {
     width: 24,
     height: 23,
-    marginBottom: 20,
   },
   shadow: {
+    position: "absolute",
+    top: "55%", // 🔧 evita usar bottom percentual (mais confiável no iOS)
     width: 30,
     height: 8,
     backgroundColor: "#000",
     borderRadius: 4,
-    position: "absolute",
-    bottom: "45%",
-    zIndex: -1,
   },
 });
