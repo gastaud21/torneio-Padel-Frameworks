@@ -28,78 +28,102 @@ type Props = TouchableOpacityProps & {
 
 export default function QuadraPadel() {
   return (
-    <View style={styles.main}>
-      <ImageBackground
-        source={require("../../../assets/images/quadra-padel.png")}
-        style={styles.quadra}
-      >
-        <View style={styles.divDupla}>
-          <View style={styles.divPlayer}>
-            <Avatar
-              rounded
-              size={48}
-              containerStyle={styles.playerAvatar}
-              source={{
-                uri: "https://www.padelfip.com/wp-content/uploads/2023/02/01-COELLO-1.png",
-              }}
-            />
+    <View style={{ backgroundColor: "#2c2c2c" }}>
+      <View>
+        <Text>Imagem logotipo do clube</Text>
+      </View>
+      <View style={styles.main}>
+        <ImageBackground
+          source={require("../../../assets/images/quadra-padel.png")}
+          style={styles.quadra}
+        >
+          <View style={styles.divDupla}>
+            <View style={styles.divPlayer}>
+              <Avatar
+                rounded
+                size={48}
+                containerStyle={styles.playerAvatar}
+                source={{
+                  uri: "https://www.padelfip.com/wp-content/uploads/2023/02/01-COELLO-1.png",
+                }}
+              />
+            </View>
+            <View style={styles.divPlayer}>
+              <Avatar
+                rounded
+                size={48}
+                containerStyle={styles.playerAvatar}
+                source={{
+                  uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz63rvLcLushA9lu5ur1gISTIRtgDkQEdmOA&s",
+                }}
+              />
+            </View>
           </View>
-          <View style={styles.divPlayer}>
-            <Avatar
-              rounded
-              size={48}
-              containerStyle={styles.playerAvatar}
-              source={{
-                uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz63rvLcLushA9lu5ur1gISTIRtgDkQEdmOA&s",
-              }}
-            />
-          </View>
-        </View>
-        <View style={styles.divBola}>
-          {/* <Image
+          <View style={styles.divBola}>
+            {/* <Image
           style={styles.bolaImage}
           source={require("../../../assets/images/bola-padel.png")}
         /> */}
-          <BolaQuicando />
-        </View>
-        <View style={styles.divDupla}>
-          <View style={styles.divPlayer}>
-            <Avatar
-              rounded
-              size={48}
-              containerStyle={styles.playerAvatar}
-              source={{
-                uri: "https://www.padelfip.com/wp-content/uploads/2023/02/Stupaczuk-2.png",
-              }}
-            />
+            <BolaQuicando />
           </View>
-          <View style={styles.divPlayer}>
-            <Avatar
-              rounded
-              size={48}
-              containerStyle={styles.playerAvatar}
-              source={{
-                uri: "https://www.padelfip.com/wp-content/uploads/2023/02/08-CHINGOTTO-1.png",
-              }}
-            />
+          <View style={styles.divDupla}>
+            <View style={styles.divPlayer}>
+              <Avatar
+                rounded
+                size={48}
+                containerStyle={styles.playerAvatar}
+                source={{
+                  uri: "https://www.padelfip.com/wp-content/uploads/2023/02/Stupaczuk-2.png",
+                }}
+              />
+            </View>
+            <View style={styles.divPlayer}>
+              <Avatar
+                rounded
+                size={48}
+                containerStyle={styles.playerAvatar}
+                source={{
+                  uri: "https://www.padelfip.com/wp-content/uploads/2023/02/08-CHINGOTTO-1.png",
+                }}
+              />
+            </View>
+          </View>
+        </ImageBackground>
+        <View style={placar.divPlacar}>
+          <View style={placar.dupla}>
+            <View style={placar.divBotoes}>
+              <Button>-</Button>
+              <Button>+</Button>
+            </View>
+            <View style={placar.divGames}>
+              <View style={placar.divTextGames}>
+                <Text style={placar.textGame}>3</Text>
+              </View>
+              <View style={placar.divTextGames}>
+                <Text style={placar.textGame}>2</Text>
+              </View>
+            </View>
+            <Text style={[placar.fontPlacar]}>15</Text>
+          </View>
+          <View>
+            <Text style={[placar.fontPlacar]}>30</Text>
+            <View style={placar.divGames}>
+              <View style={placar.divTextGames}>
+                <Text style={placar.textGame}>6</Text>
+              </View>
+              <View style={placar.divTextGames}>
+                <Text style={placar.textGame}>5</Text>
+              </View>
+            </View>
+            <View style={placar.divBotoes}>
+              <Button>-</Button>
+              <Button>+</Button>
+            </View>
           </View>
         </View>
-      </ImageBackground>
-      <View style={placar.divPlacar}>
-        <View style={placar.dupla}>
-          <View style={placar.divBotoes}>
-            <Button>-</Button>
-            <Button>+</Button>
-          </View>
-          <Text style={[placar.fontPlacar]}>15</Text>
-        </View>
-        <View>
-          <Text style={[placar.fontPlacar]}>30</Text>
-          <View style={placar.divBotoes}>
-            <Button>-</Button>
-            <Button>+</Button>
-          </View>
-        </View>
+      </View>
+      <View>
+        <Text>Outdoor patrocinador</Text>
       </View>
     </View>
   );
@@ -150,13 +174,33 @@ const placar = StyleSheet.create({
     textAlign: "center",
     fontFamily: "PostNoBillsColomboExtraBold",
     fontWeight: "normal",
-    fontSize: 24,
+    fontSize: 32,
+    color: "white",
   },
   divPlacar: {
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     width: "50%",
+  },
+  divGames: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-around",
+    marginVertical: 20,
+  },
+  divTextGames: {
+    display: "flex",
+    justifyContent: "center",
+    backgroundColor: "#F49F1C",
+    borderRadius: "50%",
+    width: 25,
+    height: 25,
+  },
+  textGame: {
+    color: "black",
+    fontWeight: "bold",
+    textAlign: "center",
   },
   divBotoes: {
     display: "flex",
