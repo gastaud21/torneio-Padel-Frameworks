@@ -1,0 +1,15 @@
+@font-face {
+  font-family: "Post No Bills Colombo";
+  src: url("/torneioPadel/assets/fonts/PostNoBillsColombo-Bold.ttf")
+      format("truetype"),
+    url("/torneioPadel/assets/fonts/PostNoBillsColombo-ExtraBold.ttf")
+      format("truetype"),
+    url("/torneioPadel/assets/fonts/PostNoBillsColombo-Light.ttf")
+      format("truetype"),
+    url("/torneioPadel/assets/fonts/PostNoBillsColombo-Medium.ttf")
+      format("truetype"),
+    url("/torneioPadel/assets/fonts/PostNoBillsColombo-Regular.ttf")
+      format("truetype"),
+    url("/torneioPadel/assets/fonts/PostNoBillsColombo-SemiBold.ttf")
+      format("truetype");
+}

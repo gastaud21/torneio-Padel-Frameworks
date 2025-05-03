@@ -1,11 +1,28 @@
 import { Tabs } from "expo-router";
-import React from "react";
+import React, { useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Octicons from "@expo/vector-icons/Octicons";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { Slot } from "expo-router";
+import { SplashScreen } from "expo-router";
+import { useFonts } from "expo-font";
 
 export default function RootLayout() {
+  const [fontsLoaded] = useFonts({
+    PostNoBillsColomboExtraBold: require("../../assets/fonts/PostNoBillsColombo-ExtraBold.ttf"),
+    PostNoBillsColomboBold: require("../../assets/fonts/PostNoBillsColombo-Bold.ttf"),
+  });
+
+  // Evita exibir o app antes da fonte carregar
+  useEffect(() => {
+    if (fontsLoaded) SplashScreen.hideAsync();
+  }, [fontsLoaded]);
+
+  if (!fontsLoaded) {
+    return null; // ou <Loading />
+  }
+
   return (
     <React.Fragment>
       <StatusBar style="auto" />
