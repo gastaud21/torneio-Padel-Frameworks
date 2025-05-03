@@ -7,6 +7,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { Slot } from "expo-router";
 import { SplashScreen } from "expo-router";
 import { useFonts } from "expo-font";
+import HeaderHome from "../components/HeaderHome";
 
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({
@@ -26,6 +27,7 @@ export default function RootLayout() {
   return (
     <React.Fragment>
       <StatusBar style="auto" />
+      <HeaderHome />
       <Tabs screenOptions={{ headerShown: false }}>
         <Tabs.Screen
           name="index"

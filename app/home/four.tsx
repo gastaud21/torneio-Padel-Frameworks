@@ -7,7 +7,7 @@ export default function FourScreen() {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#2A74CD",
+        // backgroundColor: "#2A74CD",
       }}
     >
       <Text>four</Text>
