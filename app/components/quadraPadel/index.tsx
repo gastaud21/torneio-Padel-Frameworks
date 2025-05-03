@@ -95,24 +95,28 @@ export default function QuadraPadel() {
               <Button>-</Button>
               <Button>+</Button>
             </View>
-            <View style={placar.divGames}>
-              <View style={placar.divTextGames}>
-                <Text style={placar.textGame}>3</Text>
-              </View>
-              <View style={placar.divTextGames}>
-                <Text style={placar.textGame}>2</Text>
+            <View style={placar.containerGames}>
+              <Text style={[placar.fontPlacar]}>15</Text>
+              <View style={placar.divGames}>
+                <View style={placar.divTextGames}>
+                  <Text style={placar.textGame}>3</Text>
+                </View>
+                <View style={placar.divTextGames}>
+                  <Text style={placar.textGame}>2</Text>
+                </View>
               </View>
             </View>
-            <Text style={[placar.fontPlacar]}>15</Text>
           </View>
           <View>
-            <Text style={[placar.fontPlacar]}>30</Text>
-            <View style={placar.divGames}>
-              <View style={placar.divTextGames}>
-                <Text style={placar.textGame}>6</Text>
-              </View>
-              <View style={placar.divTextGames}>
-                <Text style={placar.textGame}>5</Text>
+            <View style={placar.containerGames}>
+              <Text style={[placar.fontPlacar]}>30</Text>
+              <View style={placar.divGames}>
+                <View style={placar.divTextGames}>
+                  <Text style={placar.textGame}>6</Text>
+                </View>
+                <View style={placar.divTextGames}>
+                  <Text style={placar.textGame}>5</Text>
+                </View>
               </View>
             </View>
             <View style={placar.divBotoes}>
@@ -170,24 +174,30 @@ const styles = StyleSheet.create({
 
 const placar = StyleSheet.create({
   dupla: {},
-  fontPlacar: {
-    textAlign: "center",
-    fontFamily: "PostNoBillsColomboExtraBold",
-    fontWeight: "normal",
-    fontSize: 32,
-    color: "white",
-  },
   divPlacar: {
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     width: "50%",
   },
+  containerGames: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-around",
+    alignItems: "flex-start",
+  },
+  fontPlacar: {
+    textAlign: "center",
+    fontFamily: "PostNoBillsColomboExtraBold",
+    fontWeight: "normal",
+    fontSize: 38,
+    color: "white",
+  },
   divGames: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-around",
-    marginVertical: 20,
+    gap: 10,
   },
   divTextGames: {
     display: "flex",
