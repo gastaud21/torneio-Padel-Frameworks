@@ -1,4 +1,5 @@
 import { View, Text } from "react-native";
+import AlterarEsporte from "../components/Buttons/Configuracoes/alterarEsporte";
 
 export default function FourScreen() {
   return (
@@ -10,7 +11,17 @@ export default function FourScreen() {
         // backgroundColor: "#2A74CD",
       }}
     >
-      <Text>four</Text>
+      <View>
+        <Text>Selecione o esporte</Text>
+        <AlterarEsporte
+          esporte="Padel"
+          imagem={require("../../assets/images/botao-padel.svg")}
+        />
+        <AlterarEsporte
+          esporte="Beach"
+          imagem={require("../../assets/images/botao-beach.svg")}
+        />
+      </View>
     </View>
   );
 }
