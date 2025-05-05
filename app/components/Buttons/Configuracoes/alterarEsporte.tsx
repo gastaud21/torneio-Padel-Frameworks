@@ -6,6 +6,8 @@ import {
   ImageSourcePropType,
 } from "react-native";
 
+import { Button } from "@rneui/base";
+
 type Props = {
   imagem: ImageSourcePropType;
   esporte: string;
@@ -14,8 +16,13 @@ type Props = {
 export default function AlterarEsporte({ imagem, esporte }: Props) {
   return (
     <View>
-      <Text style={button.texto}>{esporte}</Text>
-      <ImageBackground source={imagem} style={button.imagem}></ImageBackground>
+      <Button buttonStyle={button.button}>
+        <Text style={button.texto}>{esporte}</Text>
+        <ImageBackground
+          source={imagem}
+          style={button.imagem}
+        ></ImageBackground>
+      </Button>
     </View>
   );
 }
@@ -24,6 +31,7 @@ const button = StyleSheet.create({
   main: {},
   texto: {
     fontSize: 16,
+    color: "white",
   },
   imagem: {
     display: "flex",
@@ -34,5 +42,10 @@ const button = StyleSheet.create({
     width: 69,
     height: 39,
     // transform: [{ scale: 0.5 }, { rotate: "270deg" }],
+  },
+  button: {
+    backgroundColor: "grey",
+    display: "flex",
+    flexDirection: "column",
   },
 });
