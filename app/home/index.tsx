@@ -1,6 +1,7 @@
-import { Avatar } from "@rneui/base";
+// import { Avatar } from "@rneui/base";
 import { StyleSheet, Text, View, Alert, TextInput } from "react-native";
 // import { Button } from "../app-example/components/button";
+import Avatar from "@/app/components/Avatar";
 
 export default function Home() {
   function handleMessage() {

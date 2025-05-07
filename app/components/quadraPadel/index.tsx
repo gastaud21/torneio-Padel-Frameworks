@@ -13,10 +13,8 @@ import {
   ReactNode,
   ReactPortal,
 } from "react";
-import { Avatar } from "@rneui/themed";
 import BolaQuicando from "../BolaQuicando";
-import { Typography } from "@/assets/fonts/typography";
-import { Button } from "@rneui/base";
+import Avatar from "@/app/components/Avatar";
 
 type Props = TouchableOpacityProps & {
   title: string;
@@ -38,7 +36,7 @@ export default function QuadraPadel() {
             <Avatar
               rounded
               size={48}
-              containerStyle={styles.playerAvatar}
+              // containerStyle={styles.playerAvatar}
               source={{
                 uri: "https://www.padelfip.com/wp-content/uploads/2023/02/01-COELLO-1.png",
               }}
@@ -48,7 +46,7 @@ export default function QuadraPadel() {
             <Avatar
               rounded
               size={48}
-              containerStyle={styles.playerAvatar}
+              // containerStyle={styles.playerAvatar}
               source={{
                 uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz63rvLcLushA9lu5ur1gISTIRtgDkQEdmOA&s",
               }}
@@ -67,7 +65,6 @@ export default function QuadraPadel() {
             <Avatar
               rounded
               size={48}
-              containerStyle={styles.playerAvatar}
               source={{
                 uri: "https://www.padelfip.com/wp-content/uploads/2023/02/Stupaczuk-2.png",
               }}
@@ -77,7 +74,6 @@ export default function QuadraPadel() {
             <Avatar
               rounded
               size={48}
-              containerStyle={styles.playerAvatar}
               source={{
                 uri: "https://www.padelfip.com/wp-content/uploads/2023/02/08-CHINGOTTO-1.png",
               }}

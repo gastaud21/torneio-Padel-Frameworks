@@ -4,25 +4,29 @@ import {
   Text,
   StyleSheet,
   ImageSourcePropType,
+  TouchableOpacity,
+  GestureResponderEvent,
 } from "react-native";
 
-import { Button } from "@rneui/base";
+// import { Button } from "@rneui/base";
+import { Button } from "react-native";
 
 type Props = {
   imagem: ImageSourcePropType;
   esporte: string;
+  onPress?: (event: GestureResponderEvent) => void;
 };
 
-export default function AlterarEsporte({ imagem, esporte }: Props) {
+export default function AlterarEsporte({ imagem, esporte, onPress }: Props) {
   return (
     <View>
-      <Button buttonStyle={button.button}>
+      <TouchableOpacity style={button.button} onPress={onPress}>
         <Text style={button.texto}>{esporte}</Text>
         <ImageBackground
           source={imagem}
           style={button.imagem}
         ></ImageBackground>
-      </Button>
+      </TouchableOpacity>
     </View>
   );
 }
