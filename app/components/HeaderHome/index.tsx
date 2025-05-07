@@ -1,4 +1,3 @@
-import { BackgroundImage } from "@rneui/base";
 import { View, Text, StyleSheet } from "react-native";
 
 export default function HeaderHome() {

@@ -1,29 +1,28 @@
 import { StyleSheet, Text, View, Alert, TextInput } from "react-native";
 import { Button } from "@/app-example/components/button";
 import { Link } from "expo-router";
-import { Component, ReactNode } from "react";
+import { Component, ReactNode, useState } from "react";
+import { createStaticNavigation } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { useRouter } from "expo-router";
 
 export default function Login() {
-  function handleMessage() {
-    const name = "Rodrigo";
-    console.log("testando");
-    Alert.alert(`olá ${name}`);
-  }
+  const router = useRouter();
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [wrongInput, setWrongInput] = useState(false);
 
   function handleLogin() {
     const name = "Rodrigo";
-    // Exemplo de autenticação MOCKADA
-    const mockEmail = "teste@email.com";
-    const mockPassword = "123456";
+    const validEmail = "teste@email.com";
+    const validPassword = "123456";
 
-    // Aqui você iria validar os dados e navegar para "Home"
-    // navigation.navigate('Home') // <-- vamos configurar isso já já
-    Alert.alert(`Bem-vindo, ${name}`);
-  }
-
-  function handleSignUp() {
-    console.log("testando cadastro");
-    Alert.alert("Vamos te inscrever!");
+    if (email === validEmail && password === validPassword) {
+      router.push({ pathname: "/home", params: { email } });
+    } else {
+      setWrongInput(true);
+    }
   }
 
   return (
@@ -31,18 +30,30 @@ export default function Login() {
       <Text style={styles.title}>Match Padel</Text>
 
       <Text style={styles.label}>Email</Text>
-      <TextInput style={styles.input} placeholder="E-mail" />
+      <TextInput
+        style={styles.input}
+        placeholder="E-mail"
+        value={email}
+        onChangeText={setEmail}
+        keyboardType="email-address"
+      />
 
       <Text style={styles.label}>Senha</Text>
-      <TextInput style={styles.input} placeholder="Senha" secureTextEntry />
-
+      <TextInput
+        style={styles.input}
+        placeholder="Senha"
+        value={password}
+        onChangeText={setPassword}
+        secureTextEntry //ofusca o texto, ideal para senhas
+        onSubmitEditing={handleLogin} // Caso o usuário pressione Enter quando está digitando neste campo, chamamos a função para validar o login
+      />
+      {wrongInput && <Text>E-mail ou senha incorretos!</Text>}
       <View style={styles.buttonContainer}>
-        <Link href="/home" push asChild>
+        {/* <Link href="/home" push asChild>
           <Text>Entrar</Text>
-        </Link>
-        <Link href="/inscrever" push asChild>
-          <Text>Inscrever-se</Text>
-        </Link>
+        </Link> */}
+        <Button title="Entrar" onPress={handleLogin} />
+        <Button title="Increver-se" />
       </View>
     </View>
   );
