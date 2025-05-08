@@ -6,6 +6,7 @@ import {
   Alert,
   TextInput,
   ImageBackground,
+  Button,
 } from "react-native";
 // import { Button } from "@rneui/base";
 
@@ -17,8 +18,8 @@ export default function Placar() {
         <View style={placar.divPlacar}>
           <View style={placar.dupla}>
             <View style={placar.divBotoes}>
-              {/* <Button>-</Button> */}
-              {/* <Button>+</Button> */}
+              <Button title="-" />
+              <Button title="+" />
             </View>
             <View style={placar.containerGames}>
               <Text style={[placar.fontPlacar]}>15</Text>
@@ -45,8 +46,8 @@ export default function Placar() {
               </View>
             </View>
             <View style={placar.divBotoes}>
-              {/* <Button>-</Button> */}
-              {/* <Button>+</Button> */}
+              <Button title="-" />
+              <Button title="+" />
             </View>
           </View>
         </View>

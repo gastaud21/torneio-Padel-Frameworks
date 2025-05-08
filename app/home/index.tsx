@@ -2,6 +2,7 @@
 import { StyleSheet, Text, View, Alert, TextInput } from "react-native";
 // import { Button } from "../app-example/components/button";
 import Avatar from "@/app/components/Avatar";
+import TabelaRankGatorade from "../components/TabelaRankGatorade";
 
 export default function Home() {
   function handleMessage() {
@@ -16,15 +17,15 @@ export default function Home() {
       <View style={meuRank.container}>
         <View style={meuRank.infoContainer}>
           <View style={meuRank.divNameRank}>
-            <Text>27</Text>
+            <Text style={meuRank.position}>27</Text>
             <View style={meuRank.nameDiv}>
-              <Text>Franco</Text>
-              <Text>Stupa</Text>
+              <Text style={meuRank.namePlayer}>Franco</Text>
+              <Text style={meuRank.namePlayer}>Stupa</Text>
             </View>
           </View>
-          <View>
-            <Text>Pelotas</Text>
-            <Text>Pontos 254</Text>
+          <View style={meuRank.infoDiv}>
+            <Text style={meuRank.infoText}>Pelotas</Text>
+            <Text style={meuRank.infoText}>Pontos 254</Text>
           </View>
         </View>
         <View>
@@ -37,6 +38,7 @@ export default function Home() {
           />
         </View>
       </View>
+      <TabelaRankGatorade />
     </View>
   );
 }
@@ -74,8 +76,31 @@ const meuRank = StyleSheet.create({
   divNameRank: {
     display: "flex",
     flexDirection: "row",
+    gap: 15,
+    borderWidth: 2,
+    borderColor: "black",
+  },
+  position: {
+    fontSize: 48,
+    color: "white",
   },
   nameDiv: {
     display: "flex",
+    borderWidth: 2,
+    borderColor: "white",
+  },
+  namePlayer: {
+    fontSize: 24,
+    color: "white",
+  },
+  infoDiv: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-around",
+    borderWidth: 1,
+    borderColor: "white",
+  },
+  infoText: {
+    color: "white",
   },
 });
