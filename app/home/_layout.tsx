@@ -46,8 +46,9 @@ export default function RootLayout() {
           }}
         />
         <Tabs.Screen
-          name="third"
+          name="quadras/index"
           options={{
+            title: "Quadras",
             tabBarIcon: () => (
               <MaterialCommunityIcons
                 name="numeric-3-box-outline"
