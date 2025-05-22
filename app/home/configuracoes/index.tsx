@@ -1,8 +1,8 @@
 import { View, Text, StyleSheet } from "react-native";
-import AlterarEsporte from "../components/Buttons/Configuracoes/alterarEsporte";
+import AlterarEsporte from "@/app/components/Buttons/Configuracoes/alterarEsporte";
 // import { Avatar, Divider } from "@rneui/base";
 
-export default function FourScreen() {
+export default function ConfiguracoesScreen() {
   return (
     <View
       style={
@@ -27,11 +27,11 @@ export default function FourScreen() {
         <Text>Selecione o esporte</Text>
         <AlterarEsporte
           esporte="Padel"
-          imagem={require("../../assets/images/botao-padel.svg")}
+          imagem={require("../../../assets/images/botao-padel.svg")}
         />
         <AlterarEsporte
           esporte="Beach"
-          imagem={require("../../assets/images/botao-beach.svg")}
+          imagem={require("../../../assets/images/botao-beach.svg")}
         />
       </View>
     </View>

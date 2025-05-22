@@ -72,7 +72,7 @@ export default function RootLayout() {
           }}
         />
         <Tabs.Screen
-          name="four"
+          name="configuracoes/index"
           options={{
             title: "Configurações",
             tabBarIcon: () => <Octicons name="gear" size={24} color="black" />,
