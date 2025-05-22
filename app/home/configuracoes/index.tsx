@@ -1,8 +1,19 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Button } from "react-native";
 import AlterarEsporte from "@/app/components/Buttons/Configuracoes/alterarEsporte";
 // import { Avatar, Divider } from "@rneui/base";
+import { useSettingsStore } from "@/app/store/useSettingsStore";
 
 export default function ConfiguracoesScreen() {
+  const esporte = useSettingsStore((state) => state.esporte);
+  const setEsporte = useSettingsStore((state) => state.setEsporte);
+
+  const handleChangeEsporte = () => {
+    // Alterna entre dois esportes como exemplo
+    const novoEsporte = esporte === "Padel" ? "Beach Tennis" : "Padel";
+    setEsporte(novoEsporte);
+    console.log(novoEsporte);
+  };
+
   return (
     <View
       style={
@@ -33,6 +44,7 @@ export default function ConfiguracoesScreen() {
           esporte="Beach"
           imagem={require("../../../assets/images/botao-beach.svg")}
         />
+        <Button title="Mudar Esporte" onPress={handleChangeEsporte} />
       </View>
     </View>
   );
