@@ -1,4 +1,5 @@
 import QuadraPadel from "@/app/components/quadraPadel";
+import { useSettingsStore } from "@/app/store/useSettingsStore";
 import {
   StyleSheet,
   Text,
@@ -11,10 +12,12 @@ import {
 // import { Button } from "@rneui/base";
 
 export default function Placar() {
+  const { esporte } = useSettingsStore();
+
   return (
     <View style={pagina.main}>
       <View style={quadra.container}>
-        <QuadraPadel />
+        <QuadraPadel esporte={esporte} />
         <View style={placar.divPlacar}>
           <View style={placar.dupla}>
             <View style={placar.divBotoes}>
