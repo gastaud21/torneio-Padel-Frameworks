@@ -18,6 +18,14 @@ export default function Placar() {
   const [dupla1_pontoAtual, setDupla1_pontoAtual] = useState<number>(0);
   const [dupla2_pontoAtual, setDupla2_pontoAtual] = useState<number>(0);
 
+  const [dupla1_set1, setDupla1_set1] = useState<number>(0);
+  const [dupla2_set1, setDupla2_set1] = useState<number>(0);
+
+  const [dupla1_set2, setDupla1_set2] = useState<number>(0);
+  const [dupla2_set2, setDupla2_set2] = useState<number>(0);
+
+  const [maxSet, setMaxSet] = useState<number>(2);
+
   const pontosPossiveis = [0, 15, 30, 40];
 
   // function aumentaPonto() {
@@ -29,16 +37,62 @@ export default function Placar() {
   //     : setPontoAtual(pontosPossiveis[pontoAtual2 + 1]);
   // }
 
-  function aumentaPonto(dupla: string) {
-    if (dupla == "dupla1") {
+  function aumentaSet2(dupla: string, maxSet: number) {
+    if (dupla == "dupla1" && dupla1_set2 < maxSet) {
+      const set = dupla1_set2;
+      setDupla1_set2(set + 1);
+    }
+    if (dupla == "dupla2" && dupla2_set2 < maxSet) {
+      const set = dupla2_set2;
+      setDupla2_set2(set + 1);
+    }
+  }
+
+  function aumentaSet1(dupla: string, maxSet: number) {
+    if (dupla == "dupla1" && dupla1_set1 < maxSet) {
+      const set = dupla1_set1;
+      setDupla1_set1(set + 1);
+    }
+    if (dupla == "dupla2" && dupla2_set1 < maxSet) {
+      const set = dupla2_set1;
+      setDupla2_set1(set + 1);
+    }
+  }
+
+  function aumentaPonto(dupla: string, maxSet: number) {
+    if (dupla == "dupla1" && dupla1_set2 < maxSet) {
       const indexAtual = pontosPossiveis.indexOf(dupla1_pontoAtual);
       const proximoIndex = (indexAtual + 1) % pontosPossiveis.length;
-      setDupla1_pontoAtual(pontosPossiveis[proximoIndex]);
+
+      dupla2_pontoAtual == 40 && dupla1_set2 == maxSet - 1
+        ? ""
+        : setDupla1_pontoAtual(pontosPossiveis[proximoIndex]);
+
+      if (pontosPossiveis[indexAtual] == 40 && dupla1_set2 < maxSet) {
+        aumentaSet1(dupla, maxSet);
+      }
+
+      if (pontosPossiveis[indexAtual] == 40 && dupla1_set1 == maxSet) {
+        aumentaSet2(dupla, maxSet);
+      }
     }
-    if (dupla == "dupla2") {
+    if (dupla == "dupla2" && dupla2_set2 < maxSet) {
       const indexAtual = pontosPossiveis.indexOf(dupla2_pontoAtual);
       const proximoIndex = (indexAtual + 1) % pontosPossiveis.length;
-      setDupla2_pontoAtual(pontosPossiveis[proximoIndex]);
+
+      dupla2_pontoAtual == 40 && dupla2_set2 == maxSet - 1
+        ? ""
+        : setDupla2_pontoAtual(pontosPossiveis[proximoIndex]);
+
+      if (pontosPossiveis[indexAtual] == 40 && dupla2_set2 < maxSet) {
+        aumentaSet1(dupla, maxSet);
+      }
+
+      if (pontosPossiveis[indexAtual] == 40 && dupla2_set1 == maxSet) {
+        aumentaSet2(dupla, maxSet);
+      }
+
+      console.log(pontosPossiveis[proximoIndex]);
     }
   }
 
@@ -70,13 +124,6 @@ export default function Placar() {
     }
   }
 
-  // function aumentaPonto() {
-  //   const indexAtual = pontosPossiveis.indexOf(pontoAtual);
-  //   const proximoIndex = Math.min(indexAtual + 1, pontosPossiveis.length - 1);
-  //   const novoPonto = pontosPossiveis[proximoIndex];
-  //   setPontoAtual(novoPonto);
-  // }
-
   return (
     <View style={pagina.main}>
       <View style={quadra.container}>
@@ -85,16 +132,19 @@ export default function Placar() {
           <View style={placar.dupla}>
             <View style={placar.divBotoes}>
               <Button title="-" onPress={() => diminuiPonto("dupla1")} />
-              <Button title="+" onPress={() => aumentaPonto("dupla1")} />
+              <Button
+                title="+"
+                onPress={() => aumentaPonto("dupla1", maxSet)}
+              />
             </View>
             <View style={placar.containerGames}>
               <Text style={[placar.fontPlacar]}>{dupla1_pontoAtual}</Text>
               <View style={placar.divGames}>
                 <View style={placar.divTextGames}>
-                  <Text style={placar.textGame}>3</Text>
+                  <Text style={placar.textGame}>{dupla1_set1}</Text>
                 </View>
                 <View style={placar.divTextGames}>
-                  <Text style={placar.textGame}>2</Text>
+                  <Text style={placar.textGame}>{dupla1_set2}</Text>
                 </View>
               </View>
             </View>
@@ -104,16 +154,19 @@ export default function Placar() {
               <Text style={[placar.fontPlacar]}>{dupla2_pontoAtual}</Text>
               <View style={placar.divGames}>
                 <View style={placar.divTextGames}>
-                  <Text style={placar.textGame}>6</Text>
+                  <Text style={placar.textGame}>{dupla2_set1}</Text>
                 </View>
                 <View style={placar.divTextGames}>
-                  <Text style={placar.textGame}>5</Text>
+                  <Text style={placar.textGame}>{dupla2_set2}</Text>
                 </View>
               </View>
             </View>
             <View style={placar.divBotoes}>
               <Button title="-" onPress={() => diminuiPonto("dupla2")} />
-              <Button title="+" onPress={() => aumentaPonto("dupla2")} />
+              <Button
+                title="+"
+                onPress={() => aumentaPonto("dupla2", maxSet)}
+              />
             </View>
           </View>
         </View>
