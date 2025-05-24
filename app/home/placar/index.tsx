@@ -1,5 +1,6 @@
 import QuadraPadel from "@/app/components/quadraPadel";
 import { useSettingsStore } from "@/app/store/useSettingsStore";
+import { useEffect, useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -14,6 +15,68 @@ import {
 export default function Placar() {
   const { esporte } = useSettingsStore();
 
+  const [dupla1_pontoAtual, setDupla1_pontoAtual] = useState<number>(0);
+  const [dupla2_pontoAtual, setDupla2_pontoAtual] = useState<number>(0);
+
+  const pontosPossiveis = [0, 15, 30, 40];
+
+  // function aumentaPonto() {
+  //   const pontoAtual2 = pontosPossiveis.indexOf(pontoAtual);
+  //   console.log("pontoAtual index: ", pontoAtual);
+  //   console.log(pontoAtual2);
+  //   pontosPossiveis[pontoAtual2] == 1
+  //     ? setPontoAtual(0)
+  //     : setPontoAtual(pontosPossiveis[pontoAtual2 + 1]);
+  // }
+
+  function aumentaPonto(dupla: string) {
+    if (dupla == "dupla1") {
+      const indexAtual = pontosPossiveis.indexOf(dupla1_pontoAtual);
+      const proximoIndex = (indexAtual + 1) % pontosPossiveis.length;
+      setDupla1_pontoAtual(pontosPossiveis[proximoIndex]);
+    }
+    if (dupla == "dupla2") {
+      const indexAtual = pontosPossiveis.indexOf(dupla2_pontoAtual);
+      const proximoIndex = (indexAtual + 1) % pontosPossiveis.length;
+      setDupla2_pontoAtual(pontosPossiveis[proximoIndex]);
+    }
+  }
+
+  function diminuiPonto(dupla: string) {
+    if (dupla == "dupla1") {
+      const indexAtual = pontosPossiveis.indexOf(dupla1_pontoAtual);
+      console.log(indexAtual);
+
+      if (indexAtual > 0) {
+        const proximoIndex = Math.max(indexAtual - 1, 0);
+        const novoPonto = pontosPossiveis[proximoIndex];
+        setDupla1_pontoAtual(novoPonto);
+      } else {
+        setDupla1_pontoAtual(40);
+      }
+    }
+
+    if (dupla == "dupla2") {
+      const indexAtual = pontosPossiveis.indexOf(dupla2_pontoAtual);
+      console.log(indexAtual);
+
+      if (indexAtual > 0) {
+        const proximoIndex = Math.max(indexAtual - 1, 0);
+        const novoPonto = pontosPossiveis[proximoIndex];
+        setDupla2_pontoAtual(novoPonto);
+      } else {
+        setDupla2_pontoAtual(40);
+      }
+    }
+  }
+
+  // function aumentaPonto() {
+  //   const indexAtual = pontosPossiveis.indexOf(pontoAtual);
+  //   const proximoIndex = Math.min(indexAtual + 1, pontosPossiveis.length - 1);
+  //   const novoPonto = pontosPossiveis[proximoIndex];
+  //   setPontoAtual(novoPonto);
+  // }
+
   return (
     <View style={pagina.main}>
       <View style={quadra.container}>
@@ -21,11 +84,11 @@ export default function Placar() {
         <View style={placar.divPlacar}>
           <View style={placar.dupla}>
             <View style={placar.divBotoes}>
-              <Button title="-" />
-              <Button title="+" />
+              <Button title="-" onPress={() => diminuiPonto("dupla1")} />
+              <Button title="+" onPress={() => aumentaPonto("dupla1")} />
             </View>
             <View style={placar.containerGames}>
-              <Text style={[placar.fontPlacar]}>15</Text>
+              <Text style={[placar.fontPlacar]}>{dupla1_pontoAtual}</Text>
               <View style={placar.divGames}>
                 <View style={placar.divTextGames}>
                   <Text style={placar.textGame}>3</Text>
@@ -38,7 +101,7 @@ export default function Placar() {
           </View>
           <View>
             <View style={placar.containerGames}>
-              <Text style={[placar.fontPlacar]}>30</Text>
+              <Text style={[placar.fontPlacar]}>{dupla2_pontoAtual}</Text>
               <View style={placar.divGames}>
                 <View style={placar.divTextGames}>
                   <Text style={placar.textGame}>6</Text>
@@ -49,8 +112,8 @@ export default function Placar() {
               </View>
             </View>
             <View style={placar.divBotoes}>
-              <Button title="-" />
-              <Button title="+" />
+              <Button title="-" onPress={() => diminuiPonto("dupla2")} />
+              <Button title="+" onPress={() => aumentaPonto("dupla2")} />
             </View>
           </View>
         </View>
