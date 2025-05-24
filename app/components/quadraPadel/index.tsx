@@ -82,7 +82,7 @@ export default function QuadraPadel({ title, esporte }: Props) {
           style={styles.bolaImage}
           source={require("../../../assets/images/bola-padel.png")}
         /> */}
-          <BolaQuicando />
+          <BolaQuicando esporte={esporte} />
         </View>
         <View style={styles.divDupla}>
           <View style={styles.divPlayer}>

@@ -1,7 +1,14 @@
 import { View, StyleSheet, Animated, Image } from "react-native";
 import { useEffect, useRef } from "react";
+import { TouchableOpacityProps } from "react-native-gesture-handler";
 
-export default function BolaQuicando() {
+type Props = TouchableOpacityProps & {
+  title?: string;
+  esporte: string;
+  patrocinadorLogo?: string;
+};
+
+export default function BolaQuicando({ esporte }: Props) {
   const translateY = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
@@ -45,10 +52,17 @@ export default function BolaQuicando() {
         ]}
       />
       {/* Bola */}
-      <Animated.Image
-        source={require("../../../assets/images/bola-padel.png")}
-        style={[styles.bolaImage, { transform: [{ translateY }] }]}
-      />
+      {esporte == "Padel" ? (
+        <Animated.Image
+          source={require("../../../assets/images/bola-padel.png")}
+          style={[styles.bolaImage, { transform: [{ translateY }] }]}
+        />
+      ) : (
+        <Animated.Image
+          source={require("../../../assets/images/bola-beach.png")}
+          style={[styles.bolaImage, { transform: [{ translateY }] }]}
+        />
+      )}
     </View>
   );
 }
