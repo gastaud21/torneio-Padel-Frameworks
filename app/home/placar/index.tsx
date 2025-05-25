@@ -99,7 +99,6 @@ export default function Placar() {
   function diminuiPonto(dupla: string) {
     if (dupla == "dupla1") {
       const indexAtual = pontosPossiveis.indexOf(dupla1_pontoAtual);
-      console.log(indexAtual);
 
       if (indexAtual > 0) {
         const proximoIndex = Math.max(indexAtual - 1, 0);
@@ -107,6 +106,8 @@ export default function Placar() {
         setDupla1_pontoAtual(novoPonto);
       } else {
         setDupla1_pontoAtual(40);
+        diminuiSet1(dupla);
+        diminuiSet2(dupla);
       }
     }
 
@@ -120,7 +121,35 @@ export default function Placar() {
         setDupla2_pontoAtual(novoPonto);
       } else {
         setDupla2_pontoAtual(40);
+        // if(){
+
+        // }
+        diminuiSet1(dupla);
+        diminuiSet2(dupla);
       }
+    }
+  }
+
+  function diminuiSet1(dupla: string) {
+    if (dupla == "dupla1" && dupla1_set1 != 0) {
+      const set = dupla1_set1 - 1;
+      setDupla1_set1(set);
+    }
+
+    if (dupla == "dupla2" && dupla2_set1 != 0) {
+      const set = dupla2_set1 - 1;
+      setDupla2_set1(set);
+    }
+  }
+
+  function diminuiSet2(dupla: string) {
+    if (dupla == "dupla1" && dupla1_set2 != 0) {
+      const set = dupla1_set2 - 1;
+      setDupla1_set2(set);
+    }
+    if (dupla == "dupla2" && dupla2_set2 != 0) {
+      const set = dupla2_set2 - 1;
+      setDupla2_set2(set);
     }
   }
 
