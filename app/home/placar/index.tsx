@@ -11,9 +11,14 @@ import {
   Button,
 } from "react-native";
 // import { Button } from "@rneui/base";
+import { getQuadras } from "@/app/services/quadrasService";
+import { Quadra } from "@/app/types/Quadra";
 
 export default function Placar() {
   const { esporte } = useSettingsStore();
+
+  const [quadras, setQuadras] = useState<Quadra[]>([]);
+  const [loading, setLoading] = useState(true);
 
   const [dupla1_pontoAtual, setDupla1_pontoAtual] = useState<number>(0);
   const [dupla2_pontoAtual, setDupla2_pontoAtual] = useState<number>(0);
@@ -28,14 +33,22 @@ export default function Placar() {
 
   const pontosPossiveis = [0, 15, 30, 40];
 
-  // function aumentaPonto() {
-  //   const pontoAtual2 = pontosPossiveis.indexOf(pontoAtual);
-  //   console.log("pontoAtual index: ", pontoAtual);
-  //   console.log(pontoAtual2);
-  //   pontosPossiveis[pontoAtual2] == 1
-  //     ? setPontoAtual(0)
-  //     : setPontoAtual(pontosPossiveis[pontoAtual2 + 1]);
-  // }
+  async function fetchQuadras() {
+    try {
+      const data = await getQuadras();
+      console.log(data);
+
+      setQuadras(data);
+    } catch (error) {
+      console.log("Erro ao carregar quadras: ", error);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  useEffect(() => {
+    fetchQuadras();
+  }, []);
 
   function aumentaSet2(dupla: string, maxSet: number) {
     if (dupla == "dupla1" && dupla1_set2 < maxSet) {
@@ -156,7 +169,12 @@ export default function Placar() {
   return (
     <View style={pagina.main}>
       <View style={quadra.container}>
-        <QuadraPadel esporte={esporte} />
+        {quadras.length > 0 && (
+          <QuadraPadel
+            esporte={esporte}
+            patrocinadorLogo={quadras[0].logo_QuadraPatrocinador}
+          />
+        )}
         <View style={placar.divPlacar}>
           <View style={placar.dupla}>
             <View style={placar.divBotoes}>

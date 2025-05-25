@@ -2,6 +2,7 @@ import { View, Text } from "react-native";
 import QuadraPadel from "@/app/components/quadraPadel";
 import { useState, useEffect } from "react";
 import { useSettingsStore } from "@/app/store/useSettingsStore";
+import { getQuadras } from "@/app/services/quadrasService";
 
 export default function QuadrasJogosScreen() {
   const { esporte } = useSettingsStore();
@@ -14,6 +15,7 @@ export default function QuadrasJogosScreen() {
   //     console.log(novoEsporte);
   //   };
   console.log(esporte);
+  const [quadras, setQuadras] = useState([]);
 
   return (
     <View

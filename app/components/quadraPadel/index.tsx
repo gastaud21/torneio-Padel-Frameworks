@@ -29,7 +29,11 @@ type Props = TouchableOpacityProps & {
 // colocar as propriedades no final pra fazer com que
 // export function QuadraPadel({ title, ...rest }: Props) {
 
-export default function QuadraPadel({ title, esporte }: Props) {
+export default function QuadraPadel({
+  title,
+  esporte,
+  patrocinadorLogo,
+}: Props) {
   // const caminhoImgQuadra = esporte == "Padel";
 
   // const [imagemQuadra, setImagemQuadra] = useState<ImageSourcePropType>();
@@ -105,6 +109,13 @@ export default function QuadraPadel({ title, esporte }: Props) {
           </View>
         </View>
       </ImageBackground>
+      {patrocinadorLogo && (
+        <Image
+          source={{ uri: patrocinadorLogo }}
+          style={patrocinador.container}
+          resizeMode="cover"
+        />
+      )}
     </View>
   );
 }
@@ -185,5 +196,13 @@ const placar = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-around",
+  },
+});
+
+const patrocinador = StyleSheet.create({
+  container: {
+    width: 186,
+    height: 107,
+    // objectFit: "cover",
   },
 });
