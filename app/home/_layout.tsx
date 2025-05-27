@@ -72,10 +72,13 @@ export default function RootLayout() {
           }}
         />
         <Tabs.Screen
-          name="configuracoes/index"
+          name="perfil/index"
           options={{
-            title: "Configurações",
-            tabBarIcon: () => <Octicons name="gear" size={24} color="black" />,
+            title: "Perfil",
+            // tabBarIcon: () => <Octicons name="gear" size={24} color="black" />,
+            tabBarIcon: () => (
+              <Ionicons name="person" size={24} color="black" />
+            ),
           }}
         />
       </Tabs>

@@ -1,5 +1,5 @@
 export const environment = {
-  server: "",
+  server: "http://localhost:8060/",
 };
 
-export const API_BASE_URL = "";
+export const API_BASE_URL = "http://localhost:8060/";

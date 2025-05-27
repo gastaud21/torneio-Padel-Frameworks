@@ -3,7 +3,7 @@ import AlterarEsporte from "@/app/components/Buttons/Configuracoes/alterarEsport
 // import { Avatar, Divider } from "@rneui/base";
 import { useSettingsStore } from "@/app/store/useSettingsStore";
 
-export default function ConfiguracoesScreen() {
+export default function PerfilScreen() {
   const esporte = useSettingsStore((state) => state.esporte);
   const setEsporte = useSettingsStore((state) => state.setEsporte);
 

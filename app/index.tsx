@@ -5,15 +5,28 @@ import { Component, ReactNode, useState } from "react";
 import { createStaticNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useRouter } from "expo-router";
+import { useAuth } from "./auth/useAuth";
+import { useNavigation } from "@react-navigation/native";
+import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
+
+// Defina seus tipos de rotas
+type RootStackParamList = {
+  Home: undefined;
+  Login: undefined;
+  // Adicione outras telas aqui
+};
 
 export default function Login() {
   const router = useRouter();
 
+  // const navigation =
+  //   useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+  const { login, loading } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [wrongInput, setWrongInput] = useState(false);
 
-  function handleLogin() {
+  function handleLogin2() {
     const name = "Rodrigo";
     const validEmail = "teste@email.com";
     const validPassword = "123456";
@@ -23,6 +36,22 @@ export default function Login() {
     } else {
       setWrongInput(true);
     }
+  }
+
+  const handleLogin = async () => {
+    const success = await login(email, password);
+    console.log(success);
+
+    if (success) {
+      router.replace("/home");
+    } else {
+      Alert.alert("Erro", "Email ou senha inválidos");
+    }
+  };
+
+  function handleSignUp() {
+    console.log("testando cadastro");
+    Alert.alert("Vamos te inscrever!");
   }
 
   return (
@@ -53,7 +82,7 @@ export default function Login() {
           <Text>Entrar</Text>
         </Link> */}
         <Button title="Entrar" onPress={handleLogin} />
-        <Button title="Increver-se" />
+        <Button title="Increver-se" onPress={handleSignUp} />
       </View>
     </View>
   );

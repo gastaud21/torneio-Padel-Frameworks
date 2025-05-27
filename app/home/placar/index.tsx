@@ -218,9 +218,6 @@ export default function Placar() {
           </View>
         </View>
       </View>
-      <View>
-        <Text>Outdoor patrocinador</Text>
-      </View>
     </View>
   );
 }
