@@ -17,22 +17,13 @@ type RootStackParamList = {
 export default function Login() {
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParamList>>();
-  const { login, loading } = useAuth();
+  const { login } = useAuth();
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
-
-  function handleLogin2() {
-    const name = "Rodrigo";
-    // Exemplo de autenticação MOCKADA
-    const mockEmail = "teste@email.com";
-    const mockPassword = "123456";
-
-    // Aqui você iria validar os dados e navegar para "Home"
-    // navigation.navigate('Home') // <-- vamos configurar isso já já
-    Alert.alert(`Bem-vindo, ${name}`);
-  }
+  const [loading, setLoading] = useState(false);
 
   const handleLogin = async () => {
+    setLoading(true);
     const success = await login(email, senha);
     console.log(success);
 
@@ -41,6 +32,8 @@ export default function Login() {
     } else {
       Alert.alert("Erro", "Email ou senha inválidos");
     }
+
+    setLoading(false);
   };
 
   function handleSignUp() {

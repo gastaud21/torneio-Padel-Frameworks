@@ -1,16 +1,18 @@
 import { View, Text } from "react-native";
+import Jogos from "@/app/components/Jogos";
 
-export default function SecondScreen() {
+export default function JogosScreen() {
   return (
     <View
       style={{
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#2A74CD",
+        backgroundColor: "#2C2C2C",
       }}
     >
-      <Text>Jogos</Text>
+      <Text>sdf</Text>
+      <Jogos />
     </View>
   );
 }

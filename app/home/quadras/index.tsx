@@ -23,7 +23,7 @@ export default function QuadrasJogosScreen() {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#2A74CD",
+        backgroundColor: "#2C2C2C",
       }}
     >
       <Text>sdf</Text>

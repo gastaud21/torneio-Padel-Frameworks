@@ -37,7 +37,7 @@ export default function RootLayout() {
           }}
         />
         <Tabs.Screen
-          name="second"
+          name="jogos/index"
           options={{
             title: "Jogos",
             tabBarIcon: () => (
