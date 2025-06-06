@@ -33,6 +33,9 @@ export default function Placar() {
 
   const pontosPossiveis = [0, 15, 30, 40];
 
+  const corSets = esporte == "Padel" ? "#F49F1C" : "#81269D";
+  const corSetsNum = esporte == "Padel" ? "#000000" : "#FFFFFF";
+
   async function fetchQuadras() {
     try {
       const data = await getQuadras();
@@ -187,11 +190,19 @@ export default function Placar() {
             <View style={placar.containerGames}>
               <Text style={[placar.fontPlacar]}>{dupla1_pontoAtual}</Text>
               <View style={placar.divGames}>
-                <View style={placar.divTextGames}>
-                  <Text style={placar.textGame}>{dupla1_set1}</Text>
+                <View
+                  style={[placar.divTextGames, { backgroundColor: corSets }]}
+                >
+                  <Text style={[placar.textGame, { color: corSetsNum }]}>
+                    {dupla1_set1}
+                  </Text>
                 </View>
-                <View style={placar.divTextGames}>
-                  <Text style={placar.textGame}>{dupla1_set2}</Text>
+                <View
+                  style={[placar.divTextGames, { backgroundColor: corSets }]}
+                >
+                  <Text style={[placar.textGame, { color: corSetsNum }]}>
+                    {dupla1_set2}
+                  </Text>
                 </View>
               </View>
             </View>
@@ -200,11 +211,19 @@ export default function Placar() {
             <View style={placar.containerGames}>
               <Text style={[placar.fontPlacar]}>{dupla2_pontoAtual}</Text>
               <View style={placar.divGames}>
-                <View style={placar.divTextGames}>
-                  <Text style={placar.textGame}>{dupla2_set1}</Text>
+                <View
+                  style={[placar.divTextGames, { backgroundColor: corSets }]}
+                >
+                  <Text style={[placar.textGame, { color: corSetsNum }]}>
+                    {dupla2_set1}
+                  </Text>
                 </View>
-                <View style={placar.divTextGames}>
-                  <Text style={placar.textGame}>{dupla2_set2}</Text>
+                <View
+                  style={[placar.divTextGames, { backgroundColor: corSets }]}
+                >
+                  <Text style={[placar.textGame, { color: corSetsNum }]}>
+                    {dupla2_set2}
+                  </Text>
                 </View>
               </View>
             </View>
@@ -272,13 +291,13 @@ const placar = StyleSheet.create({
   divTextGames: {
     display: "flex",
     justifyContent: "center",
-    backgroundColor: "#F49F1C",
+    // backgroundColor: "#F49F1C",
     borderRadius: "50%",
     width: 25,
     height: 25,
   },
   textGame: {
-    color: "black",
+    // color: "black",
     fontWeight: "bold",
     textAlign: "center",
   },
