@@ -45,7 +45,7 @@ export default function JogosScreen() {
         <Button title="Novo Torneio" />
       </View>
       <View style={styles.divEdicaoGatorade}>
-        <Text>Jogo: DATA</Text>
+        <Text>Jogo: 10/06/2025</Text>
         <Button title="Editar" />
       </View>
       <Jogos chave="A" />

@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -18,6 +18,8 @@ type Props = TouchableOpacityProps & {
 };
 
 export default function Jogos({ chave, ...rest }: Props) {
+  const [tela, setTela] = useState("Pontos");
+
   return (
     <View>
       <List.AccordionGroup>
@@ -25,11 +27,12 @@ export default function Jogos({ chave, ...rest }: Props) {
           {/* <List.Item title="Item 2" /> */}
           <View>
             <View style={styleDivChaveButton.divButtons}>
-              <Button title="Pontos" />
-              <Button title="Jogos" />
+              <Button title="Pontos" onPress={() => setTela("Pontos")} />
+              <Button title="Jogos" onPress={() => setTela("Jogos")} />
             </View>
-            <Text>TESTE</Text>
-            <Chaves />
+            <View>
+              {tela == "Pontos" ? <Chaves /> : <Text>Ou Jogos da chave</Text>}
+            </View>
           </View>
         </List.Accordion>
         {/* <List.Accordion title="Chaves B" id="2">
