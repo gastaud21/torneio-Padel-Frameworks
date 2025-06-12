@@ -2,6 +2,8 @@ import { View, Text, TouchableOpacityProps } from "react-native";
 import Jogos from "@/app/components/Jogos";
 import { Button } from "@/app-example/components/button";
 import { StyleSheet } from "react-native";
+import DateTimePicker from "@react-native-community/datetimepicker";
+import InputData from "@/app/components/Utils/DataPicker";
 
 const torneio1 = {
   data: "10/06/2022",
@@ -41,7 +43,8 @@ export default function JogosScreen() {
       }}
     >
       <View style={styles.divNovoTorneio}>
-        <Text>Componente para selecionar a data</Text>
+        {/* <Text>Componente para selecionar a data</Text> */}
+        <InputData />
         <Button title="Novo Torneio" />
       </View>
       <View style={styles.divEdicaoGatorade}>
