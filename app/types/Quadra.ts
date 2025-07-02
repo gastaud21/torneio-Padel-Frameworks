@@ -1,7 +1,11 @@
 export type Quadra = {
   id: number;
-  logo_QuadraPatrocinador: string;
+  idPatrocinador: number;
+  isBeach: number;
+  isPadel: number;
+  logoPatrocinador: string;
   nomeQuadra: string;
-  patrocinador: string;
   tipoQuadra: string;
+  logo_QuadraPatrocinador: string;
+  patrocinador: string;
 };
