@@ -37,7 +37,7 @@ export default function RootLayout() {
           }}
         />
         <Tabs.Screen
-          name="second"
+          name="jogos/index"
           options={{
             title: "Jogos",
             tabBarIcon: () => (
@@ -46,8 +46,9 @@ export default function RootLayout() {
           }}
         />
         <Tabs.Screen
-          name="third"
+          name="quadras/index"
           options={{
+            title: "Quadras",
             tabBarIcon: () => (
               <MaterialCommunityIcons
                 name="numeric-3-box-outline"
@@ -71,10 +72,13 @@ export default function RootLayout() {
           }}
         />
         <Tabs.Screen
-          name="four"
+          name="perfil/index"
           options={{
-            title: "Configurações",
-            tabBarIcon: () => <Octicons name="gear" size={24} color="black" />,
+            title: "Perfil",
+            // tabBarIcon: () => <Octicons name="gear" size={24} color="black" />,
+            tabBarIcon: () => (
+              <Ionicons name="person" size={24} color="black" />
+            ),
           }}
         />
       </Tabs>

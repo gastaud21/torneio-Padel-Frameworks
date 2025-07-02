@@ -2,24 +2,39 @@ import { StyleSheet, Text, View, Alert, TextInput } from "react-native";
 // import { Button } from "@/app-example/components/button";
 import { Component, ReactNode } from "react";
 import { Button } from "react-native";
+import { useAuth } from "../auth/useAuth";
+import { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
+import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
+
+// Defina seus tipos de rotas
+type RootStackParamList = {
+  Home: undefined;
+  Login: undefined;
+  // Adicione outras telas aqui
+};
 
 export default function Login() {
-  function handleMessage() {
-    const name = "Rodrigo";
-    console.log("testando");
-    Alert.alert(`olá ${name}`);
-  }
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+  const { login } = useAuth();
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  function handleLogin() {
-    const name = "Rodrigo";
-    // Exemplo de autenticação MOCKADA
-    const mockEmail = "teste@email.com";
-    const mockPassword = "123456";
+  const handleLogin = async () => {
+    setLoading(true);
+    const success = await login(email, senha);
+    console.log(success);
 
-    // Aqui você iria validar os dados e navegar para "Home"
-    // navigation.navigate('Home') // <-- vamos configurar isso já já
-    Alert.alert(`Bem-vindo, ${name}`);
-  }
+    if (success) {
+      navigation.replace("Home");
+    } else {
+      Alert.alert("Erro", "Email ou senha inválidos");
+    }
+
+    setLoading(false);
+  };
 
   function handleSignUp() {
     console.log("testando cadastro");

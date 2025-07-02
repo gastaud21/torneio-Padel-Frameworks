@@ -6,31 +6,59 @@ import {
   Image,
   View,
   StyleSheet,
+  ImageSourcePropType,
 } from "react-native";
 import {
   ReactElement,
   JSXElementConstructor,
   ReactNode,
   ReactPortal,
+  useState,
+  useEffect,
 } from "react";
 import BolaQuicando from "../BolaQuicando";
 import Avatar from "@/app/components/Avatar";
 
 type Props = TouchableOpacityProps & {
-  title: string;
+  title?: string;
+  esporte: string;
+  patrocinadorLogo?: string;
 };
 
 // ...rest pega todas as propriedades que não foram pegas
 // colocar as propriedades no final pra fazer com que
 // export function QuadraPadel({ title, ...rest }: Props) {
 
-export default function QuadraPadel() {
+export default function QuadraPadel({
+  title,
+  esporte,
+  patrocinadorLogo,
+}: Props) {
+  // const caminhoImgQuadra = esporte == "Padel";
+
+  // const [imagemQuadra, setImagemQuadra] = useState<ImageSourcePropType>();
+
+  // useEffect(() => {
+  //   console.log("o esporte mudou");
+
+  //   if (esporte === "Padel") {
+  //     setImagemQuadra(require("../../../assets/images/quadra-padel.png"));
+  //   } else {
+  //     setImagemQuadra(require("../../../assets/images/quadra-beach.png"));
+  //   }
+  // }, [esporte]); // sempre que o esporte mudar, muda a imagem
+
+  function getImagemQuadra(esporte: string): ImageSourcePropType {
+    console.log("ESPORTE: ", esporte);
+
+    return esporte === "Padel"
+      ? require("../../../assets/images/quadra-padel.png")
+      : require("../../../assets/images/quadra-beach.png");
+  }
+
   return (
     <View>
-      <ImageBackground
-        source={require("../../../assets/images/quadra-padel.png")}
-        style={styles.quadra}
-      >
+      <ImageBackground source={getImagemQuadra(esporte)} style={styles.quadra}>
         <View style={styles.divDupla}>
           <View style={styles.divPlayer}>
             <Avatar
@@ -58,7 +86,7 @@ export default function QuadraPadel() {
           style={styles.bolaImage}
           source={require("../../../assets/images/bola-padel.png")}
         /> */}
-          <BolaQuicando />
+          <BolaQuicando esporte={esporte} />
         </View>
         <View style={styles.divDupla}>
           <View style={styles.divPlayer}>
@@ -81,6 +109,13 @@ export default function QuadraPadel() {
           </View>
         </View>
       </ImageBackground>
+      {patrocinadorLogo && (
+        <Image
+          source={{ uri: patrocinadorLogo }}
+          style={patrocinador.container}
+          resizeMode="cover"
+        />
+      )}
     </View>
   );
 }
@@ -161,5 +196,13 @@ const placar = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-around",
+  },
+});
+
+const patrocinador = StyleSheet.create({
+  container: {
+    width: 186,
+    height: 107,
+    // objectFit: "cover",
   },
 });
