@@ -2,6 +2,6 @@ export type Categoria = {
   id: number;
   nome: string;
   descricao: string;
-  isBeach: number;
+  isBeachTenis: number;
   isPadel: number;
 };

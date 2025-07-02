@@ -253,49 +253,65 @@ export default function JogosScreen() {
                     }}
                   />
 
-                  <Text>Quantidade de Games</Text>
-                  <TextInput
-                    style={modalStyles.input}
-                    keyboardType="numeric"
-                    placeholder="Ex: 3"
-                    value={games}
-                    onChangeText={setGames}
-                  />
-
-                  <View>
-                    <Text>Quantidade de Jogadores</Text>
+                  <View
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      justifyContent: "space-around",
+                    }}
+                  >
                     <View
                       style={{
                         display: "flex",
-                        flexDirection: "row",
-                        justifyContent: "space-between",
+                        flexDirection: "column",
+                        alignItems: "center",
                       }}
                     >
-                      <View>
-                        <Text>Min.</Text>
-                        <TextInput
-                          style={[modalStyles.input, { width: 50 }]}
-                          keyboardType="numeric"
-                          placeholder="Ex: 2"
-                          value={minJogadores}
-                          onChangeText={setMinJogadores}
-                        />
-                      </View>
-                      <View>
-                        <Text>Max.</Text>
-                        <TextInput
-                          style={[modalStyles.input, { width: 50 }]}
-                          keyboardType="numeric"
-                          placeholder="Ex: 4"
-                          value={maxJogadores}
-                          onChangeText={setMaxJogadores}
-                        />
+                      <Text>Quantidade</Text>
+                      <Text>de Games</Text>
+                      <TextInput
+                        style={[modalStyles.input, { width: 50 }]}
+                        keyboardType="numeric"
+                        placeholder="Ex: 3"
+                        value={games}
+                        onChangeText={setGames}
+                      />
+                    </View>
+                    <View>
+                      <Text>Quantidade de Jogadores</Text>
+                      <View
+                        style={{
+                          display: "flex",
+                          flexDirection: "row",
+                          justifyContent: "space-between",
+                        }}
+                      >
+                        <View>
+                          <Text>Min.</Text>
+                          <TextInput
+                            style={[modalStyles.input, { width: 50 }]}
+                            keyboardType="numeric"
+                            placeholder="Ex: 2"
+                            value={minJogadores}
+                            onChangeText={setMinJogadores}
+                          />
+                        </View>
+                        <View>
+                          <Text>Max.</Text>
+                          <TextInput
+                            style={[modalStyles.input, { width: 50 }]}
+                            keyboardType="numeric"
+                            placeholder="Ex: 4"
+                            value={maxJogadores}
+                            onChangeText={setMaxJogadores}
+                          />
+                        </View>
                       </View>
                     </View>
                   </View>
 
                   <View>
-                    <Text style={{ marginTop: 10 }}>Quadras Selecionadas</Text>
+                    <Text style={{ marginTop: 10 }}>Selecione as Quadras:</Text>
                     <View
                       style={{
                         flexDirection: "row",
@@ -361,7 +377,7 @@ export default function JogosScreen() {
 
                   <View>
                     <Text style={{ marginTop: 10 }}>
-                      Categorias Selecionadas
+                      Selecione as Categorias:
                     </Text>
                     <View
                       style={{
@@ -375,7 +391,7 @@ export default function JogosScreen() {
                           modalidade === "padel"
                             ? categoria.isPadel === 1
                             : modalidade === "beach"
-                            ? categoria.isBeach === 1
+                            ? categoria.isBeachTenis === 1
                             : false
                         )
                         .map((categoria) => (
@@ -465,7 +481,9 @@ const modalStyles = StyleSheet.create({
     alignItems: "center",
   },
   modalContent: {
-    width: 300,
+    width: "100%",
+    height: "100%",
+    maxHeight: "100%",
     backgroundColor: "white",
     borderRadius: 16,
     padding: 20,
